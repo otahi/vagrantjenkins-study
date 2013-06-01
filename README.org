@@ -1,0 +1,10 @@
+* Vagrant Jenkins Study
+
+** Purpose
+To study Vagrant/Jenkins to do CI.
+
+** References
+- [[http://d.hatena.ne.jp/naoya/20130520/1369054828][Vagrant + Chef Solo + serverspec + Jenkins でサーバー構築を CI / naoyaのはてなダイアリー]]
+
+
+

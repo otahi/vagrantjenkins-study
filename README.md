@@ -1,2 +1,0 @@
-vagrantjenkins-study
-====================
