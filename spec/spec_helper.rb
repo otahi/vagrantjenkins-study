@@ -23,9 +23,9 @@ RSpec.configure do |c|
     if c.host != host
       c.ssh.close if c.ssh
       c.host  = host
-      options = Net::SSH::Config.for(c.host)
+      options = Net::SSH::Config.for(c.host, files=["vagrant-ssh.conf"])
       user    = options[:user] || Etc.getlogin
-      
+
       config = `vagrant ssh-config --host #{host}`
       if config != ''
         config.each_line do |line|
@@ -40,7 +40,7 @@ RSpec.configure do |c|
           end
         end
       end
-    
+
       c.ssh   = Net::SSH.start(c.host, user, options)
       c.os    = backend(Serverspec::Commands::Base).check_os
     end
