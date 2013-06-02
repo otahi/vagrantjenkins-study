@@ -3,6 +3,26 @@
 ** Purpose
 To study Vagrant/Jenkins to do CI with Trema.
 
+** How to use
+#+BEGIN_SRC sh
+vagrant up
+
+# create configure 
+vagrant ssh-config --host=trema-study > vagrant-ssh.conf
+
+bundle
+
+# bootstrap = prepare + cook
+bundle exec knife solo bootstrap trema-study -F vagrant-ssh.conf
+
+# run serverspec
+bundle exec rake ci:setup:rspec spec
+
+rm -f vagrant-ssh.conf
+
+vagrant destroy -f
+#+END_SRC
+
 ** TODOS
 - To add test for trema controllers
 
